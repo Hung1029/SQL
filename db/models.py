@@ -5,9 +5,9 @@ from sqlalchemy.sql.schema import ForeignKey
 
 
 class DbArticle(Base):
-    __tablename__ = 'product'
+    __tablename__ = 'article'
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String)
+    title = Column(String)
     sku = Column(String)
     description = Column(String)
     description_long = Column(String)

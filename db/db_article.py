@@ -23,7 +23,7 @@ def db_feed(db: Session):
 
 def create(db: Session, request: ArticleRequestSchema) -> DbArticle:
     new_article = DbArticle(
-        name=request.name,
+        title=request.title,
         sku=request.sku,
         description=request.description,
         description_long=request.description_long,
@@ -46,10 +46,10 @@ def get_article_by_id(article_id: int, db: Session) -> DbArticle:
                             detail=f'Article with id = {id} not found')
     return article
 
-
-def get_article_by_category(category: str, db: Session) -> list[DbArticle]:
-    article = db.query(DbArticle).filter(DbArticle.category == category).all()
-    if not article:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f'Article with category = {id} not found')
-    return article
+#
+# def get_article_by_category(category: str, db: Session) -> list[DbArticle]:
+#     article = db.query(DbArticle).filter(DbArticle.category == category).all()
+#     if not article:
+#         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+#                             detail=f'Article with category = {id} not found')
+#     return article
